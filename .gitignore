@@ -1,0 +1,28 @@
+using System;
+
+class BookProblem
+{
+    static void Main()
+    {
+        int pages = int.Parse(Console.ReadLine());    //number of pages of the book
+        double campingDays = double.Parse(Console.ReadLine());   //number of camping days in a month
+        double pagesStefanReads = double.Parse(Console.ReadLine());   //number of pages which Stefan reads every normal day
+
+        double daysForRead = 30 - campingDays;
+
+        if (daysForRead > 0)
+        {
+            double pagesPerMonth = pagesStefanReads * daysForRead;
+            double monthsNeeded = pages / pagesPerMonth;
+            int yearsToRead = (int)(monthsNeeded / 12);
+            double monthsToRead = monthsNeeded - (yearsToRead * 12);
+
+            Console.WriteLine("{0} years {1} months", yearsToRead, Math.Ceiling(monthsToRead));
+        }
+
+        else
+        {
+            Console.WriteLine("never");
+        }
+    }
+}
